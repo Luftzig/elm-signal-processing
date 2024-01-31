@@ -1,7 +1,33 @@
-module Complex exposing (..)
+module Complex exposing
+    ( Complex
+    , imaginary, real, zero
+    , add, subtract, multiply, divideByReal, equal
+    , exp, abs, conjugate
+    )
 
 {-| Simple module for handling complex numbers.
 This module was made for the needs of the signal processing library and thus kept to minimum.
+
+
+# Types
+
+@docs Complex
+
+
+# Constructors
+
+@docs imaginary, real, zero
+
+
+# Binary Operators
+
+@docs add, subtract, multiply, divideByReal, equal
+
+
+# Unary Operators
+
+@docs exp, abs, conjugate
+
 -}
 
 

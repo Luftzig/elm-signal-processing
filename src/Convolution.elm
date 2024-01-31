@@ -1,4 +1,4 @@
-module Convolution exposing (..)
+module Convolution exposing (convolve, convolveDirectly)
 
 {-| Functions for convolution
 See: <https://en.wikipedia.org/wiki/Convolution>
