@@ -1,6 +1,6 @@
 {
   "type": "package",
-  "name": "elm-signal-processing",
+  "name": "Luftzig/elm-signal-processing",
   "summary": "Different functions for signal processing, such as fast fourier transform (FFT) and convolution.",
   "license": "BSD-3-Clause",
   "version": "1.0.0",
