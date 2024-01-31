@@ -1,9 +1,9 @@
 {
   "root": "../src",
   "tests": [
-    "./FFT.elm",
-    "./Convolution.elm",
-    "./Complex.elm",
+    "FFT",
+    "Convolution",
+    "Complex",
     "./README.md"
   ]
 }

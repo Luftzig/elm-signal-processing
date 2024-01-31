@@ -1,9 +1,12 @@
 module Complex exposing (..)
 
-{-| Simple representation of a complex number
+{-| Simple module for handling complex numbers.
+This module was made for the needs of the signal processing library and thus kept to minimum.
 -}
 
 
+{-| Simple representation of a complex number
+-}
 type alias Complex =
     { re : Float
     , im : Float
@@ -12,7 +15,7 @@ type alias Complex =
 
 {-| Construct a `Complex` number with imaginary value only
 
-    imaginary 1 == { re = 0, im = 1 }
+    imaginary 1 --> { re = 0, im = 1 }
 
 -}
 imaginary : Float -> Complex
@@ -105,7 +108,7 @@ abs { re, im } =
 
 {-| computes the conjugate of a complex number
 
-    conjugate { re = 1, im = 1 } == { re = 1, im = -1 }
+    conjugate { re = 1, im = 1 } --> { re = 1, im = -1 }
 
 -}
 conjugate : Complex -> Complex
