@@ -1,11 +1,12 @@
-module FFT exposing (..)
+module FFTTests exposing (..)
 
 import Complex exposing (Complex, real, zero)
 import Expect exposing (Expectation, FloatingPointTolerance(..))
-import FFT.FFT as FFT exposing (zeroPadToNextPowerOf2)
+import FFT
 import Fuzz
 import Helpers exposing (listsEqualBy)
 import List.Extra
+import Padding exposing (zeroPadToNextPowerOf2)
 import Test exposing (Test, describe, fuzz, test)
 
 

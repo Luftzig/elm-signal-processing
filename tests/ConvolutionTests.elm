@@ -1,4 +1,4 @@
-module Convolution exposing (..)
+module ConvolutionTests exposing (..)
 
 import Convolution
 import Expect

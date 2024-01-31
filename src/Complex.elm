@@ -25,7 +25,7 @@ imaginary im =
 
 {-| Construct a `Complex` number with real value only
 
-    real 1 == { re = 1, im = 0 }
+    real 1 --> { re = 1, im = 0 }
 
 -}
 real : Float -> Complex
@@ -49,7 +49,7 @@ equal a b =
 
 {-| Add two complex numbers
 
-    add (real 1) (imaginary 2) == { re = 1, im = 2 }
+    add (real 1) (imaginary 2) --> { re = 1, im = 2 }
 
 -}
 add : Complex -> Complex -> Complex
@@ -59,7 +59,7 @@ add a b =
 
 {-| Subtract two complex numbers
 
-    subtract { re = 1, im = 2 } (real 2) == { re = -1, im = 2 }
+    subtract { re = 1, im = 2 } (real 2) --> { re = -1, im = 2 }
 
 -}
 subtract : Complex -> Complex -> Complex
@@ -69,7 +69,7 @@ subtract a b =
 
 {-| Multiply two complex numbers
 
-    multiply (imaginary 1) (real 2) == { re = 0, im = 2 }
+    multiply (imaginary 1) (real 2) --> { re = 0, im = 2 }
 
 -}
 multiply : Complex -> Complex -> Complex
@@ -82,7 +82,7 @@ multiply a b =
 {-| Divide a complex number by a real number.
 Notice that the divisor is given first.
 
-    real 2 |> divideByReal 2 == { re = 0, im = 2 }
+    real 2 |> divideByReal 2 --> { re = 1, im = 0 }
 
 -}
 divideByReal : Float -> Complex -> Complex

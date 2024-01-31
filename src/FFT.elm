@@ -1,28 +1,28 @@
-module FFT.FFT exposing (fft, inverseFft, realFft, realInverseFft, zeroPadTo, zeroPadToNextPowerOf2)
+module FFT exposing
+    ( fft, inverseFft
+    , realFft, realInverseFft
+    )
+
+{-| Functions for calculating the discrete finite fourier transform using the fast fourier transform algorithms.
+
+
+# Complex values
+
+Functions that work on complex values
+
+@docs fft, inverseFft
+
+
+# Real values
+
+Functions that work real (`Float`) values
+
+@docs realFft, realInverseFft
+
+-}
 
 import Complex exposing (..)
-
-
-zeroPadTo : Int -> List Complex -> List Complex
-zeroPadTo n xs =
-    if List.length xs >= n then
-        xs
-
-    else
-        xs ++ List.repeat (n - List.length xs) zero
-
-
-zeroPadToNextPowerOf2 : List Complex -> List Complex
-zeroPadToNextPowerOf2 zs =
-    let
-        length =
-            List.length zs
-
-        nextPowerOf2 : Int
-        nextPowerOf2 =
-            2 ^ (ceiling <| logBase 2 (toFloat length))
-    in
-    zeroPadTo nextPowerOf2 zs
+import Padding exposing (zeroPadToNextPowerOf2)
 
 
 splitEvensAndOdds : List a -> ( List a, List a )
@@ -42,6 +42,11 @@ splitEvensAndOdds list =
             ( x :: xs_, y :: ys_ )
 
 
+{-| compute the fourier transform of a list of complex values
+
+    fft [ real 1, zero, real 1, imaginary 0.5 ]
+
+-}
 fft : List Complex -> List Complex
 fft array =
     let
@@ -80,6 +85,10 @@ fft array =
     fftInner (zeroPadToNextPowerOf2 array)
 
 
+{-| compute the inverse fourier transform of a list of complex values
+The inverse fourier transform of list Z is equal to $$(conjugate (fft (conjugate Z)) / (length Z))$$
+where Z\* is the conjugate of Z.
+-}
 inverseFft : List Complex -> List Complex
 inverseFft list =
     let
@@ -93,6 +102,11 @@ inverseFft list =
         |> List.map (divideByReal (List.length paddedInput |> toFloat))
 
 
+{-| compute the fourier transform of a list of real values. The output is a list of complex values.
+
+    realFft [ 1, 0, 1, 0.5 ]
+
+-}
 realFft : List Float -> List Complex
 realFft floats =
     floats
@@ -100,6 +114,10 @@ realFft floats =
         |> fft
 
 
+{-| compute the inverse fourier transform of a list of real values
+The inverse fourier transform of list Z is equal to $$(conjugate (fft (conjugate Z)) / (length Z))$$
+where Z\* is the conjugate of Z.
+-}
 realInverseFft : List Float -> List Complex
 realInverseFft floats =
     floats
