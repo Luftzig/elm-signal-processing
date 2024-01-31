@@ -1,7 +1,9 @@
 {
   "root": "../src",
   "tests": [
-    "REPLACEME",
+    "./FFT.elm",
+    "./Convolution.elm",
+    "./Complex.elm",
     "./README.md"
   ]
 }
